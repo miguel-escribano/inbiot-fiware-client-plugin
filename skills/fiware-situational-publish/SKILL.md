@@ -30,3 +30,5 @@ Call **`publish_situational_iaq`** with:
 `list_published_hq_entities` or summarize entity id, telemetry, and `situationSummary` / `situationBand` from the tool response.
 
 Host agents (Anne) may add WELL/EPBD narrative in chat; NGSI payload stays on **generic-iaq-v1**.
+
+**Orion note:** the bridge stores full assessment JSON in `situationPayload` as **base64url** (`situationPayloadEncoding`: `base64url+json`) and sanitizes `situationSummary` for Orion forbidden characters. Parentheses and quotes in chat are fine; the MCP normalizes before POST.
