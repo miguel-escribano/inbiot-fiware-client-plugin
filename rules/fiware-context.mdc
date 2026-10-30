@@ -1,0 +1,7 @@
+---
+description: When the user asks to publish to FIWARE, Orion, NGSI, smart city context, or list HQ entities in Orion, use inbiot-fiware-client-plugin skills and inbiot-orion-bridge-mcp. Read agents/fiware-integrator.md for integrator mode.
+globs:
+alwaysApply: false
+---
+
+Use **inbiot-orion-bridge-mcp** tools only (not generic FIWARE MCPs). Follow `skills/fiware/` router or the specific fiware-* skill. Assessments use profile **generic-iaq-v1** per `schemas/generic-iaq-assessment-v1.json`.

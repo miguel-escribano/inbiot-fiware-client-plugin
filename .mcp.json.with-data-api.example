@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "inbiot-data-api-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.miguel-escribano.com/inbiot-data-api-mcp/mcp",
+        "--header",
+        "X-MCP-Token: YOUR_MCP_TOKEN"
+      ]
+    },
+    "inbiot-orion-bridge-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.miguel-escribano.com/inbiot-orion-bridge-mcp/mcp",
+        "--header",
+        "X-MCP-Token: YOUR_MCP_TOKEN"
+      ]
+    }
+  }
+}

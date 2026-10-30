@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inbiotair.com/schemas/generic-iaq-assessment-v1.json",
+  "title": "GenericIaqAssessmentV1",
+  "type": "object",
+  "required": ["profile", "overallBand", "summary", "basis", "observedParameters", "partialData"],
+  "properties": {
+    "profile": { "const": "generic-iaq-v1" },
+    "overallBand": { "enum": ["good", "moderate", "poor", "unknown"] },
+    "summary": { "type": "string", "minLength": 10, "maxLength": 800 },
+    "basis": { "enum": ["instant", "window"] },
+    "basisWindowHours": { "type": "number", "minimum": 1, "maximum": 168 },
+    "observedParameters": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "gaps": { "type": "array", "items": { "type": "string" } },
+    "drivers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["parameter", "band", "note"],
+        "properties": {
+          "parameter": { "type": "string" },
+          "band": { "enum": ["good", "moderate", "poor", "unknown"] },
+          "note": { "type": "string", "maxLength": 200 }
+        }
+      }
+    },
+    "recommendedActions": {
+      "type": "array",
+      "items": { "type": "string", "maxLength": 200 },
+      "maxItems": 5
+    },
+    "partialData": { "type": "boolean" },
+    "methodologyVersion": { "type": "string", "default": "1.0.0" }
+  },
+  "additionalProperties": false
+}
