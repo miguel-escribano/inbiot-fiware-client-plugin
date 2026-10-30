@@ -1,0 +1,13 @@
+{
+  "name": "inbiot-fiware",
+  "version": "0.1.0",
+  "description": "FIWARE Orion client for InBiot HQ — publish telemetry and generic-iaq-v1 situational assessments via inbiot-orion-bridge-mcp.",
+  "author": {
+    "name": "Miguel Escribano"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/miguel-escribano/inbiot-fiware-client-plugin",
+  "keywords": ["fiware", "orion", "ngsi", "iaq", "inbiot", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "inbiot-orion-bridge-mcp": {
+      "type": "http",
+      "url": "https://mcp.miguel-escribano.com/inbiot-orion-bridge-mcp/mcp",
+      "headers": {
+        "X-MCP-Token": "${MCP_INBIOT_AUTH_TOKEN}"
+      }
+    }
+  }
+}

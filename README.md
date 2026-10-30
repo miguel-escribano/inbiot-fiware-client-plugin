@@ -31,7 +31,17 @@ Read [`schemas/generic-iaq-assessment-v1.json`](schemas/generic-iaq-assessment-v
 
 ## Hermes (Anne web)
 
-Hosted Anne loads skills from `/root/anne/inbiot-fiware-client-plugin/skills` via `inbiot-anne-hermes/config.yaml`. Push this repo `main` → **anne-app-deployer** (same as openair client plugin).
+Portable **Agent Plugins v1** package: root `plugin.json` + `skills/` + `mcp.json`.
+
+```bash
+hermes plugins install miguel-escribano/inbiot-fiware-client-plugin --enable
+# or from checkout:
+bash deploy/install-hermes-plugin.sh /path/to/inbiot-fiware-client-plugin
+```
+
+Hosted Anne: push `main` → **anne-app-deployer** → `install-hermes-plugin.sh` + profile sync (`plugins.enabled: [inbiot-fiware]`). Anne profile still lists `inbiot-orion-bridge-mcp` in `mcp_servers` (loopback); plugin `mcp.json` is for other hosts / IDE parity.
+
+Remote MCP: see `mcp.remote.example.json` (set `MCP_INBIOT_AUTH_TOKEN` in profile `.env`).
 
 ## License
 
