@@ -2,7 +2,7 @@
 
 Client plugin for **InBiot → FIWARE Orion (NGSI-v2)**. Skills, assessment contract, and IDE wiring. Pairs with [inbiot-orion-bridge-mcp](https://github.com/miguel-escribano/inbiot-orion-bridge-mcp) (MCP server) and optionally [inbiot-data-api-mcp](https://github.com/miguel-escribano/inbiot-data-api-mcp) for sensor reads.
 
-Anne (or any Hermes agent) mounts this plugin's `skills/` like **openair-3-mcp-client-plugin-oss**; persona stays the host agent unless you use **fiware-integrator** in the IDE.
+On **Hermes**, install as Agent Plugins v1 (**`inbiot-fiware`**); persona stays the host agent (hosted Anne never loads **fiware-integrator.md**). In the **IDE**, use **fiware-integrator** or skills directly.
 
 ## Binomio
 
@@ -35,11 +35,11 @@ Portable **Agent Plugins v1** package: root `plugin.json` + `skills/` + `mcp.jso
 
 ```bash
 hermes plugins install miguel-escribano/inbiot-fiware-client-plugin --enable
-# or from checkout:
-bash deploy/install-hermes-plugin.sh /path/to/inbiot-fiware-client-plugin
+# Linode / checkout:
+bash deploy/install-hermes-plugin.sh
 ```
 
-Hosted Anne: push `main` → **anne-app-deployer** → `install-hermes-plugin.sh` + profile sync (`plugins.enabled: [inbiot-fiware]`). Anne profile still lists `inbiot-orion-bridge-mcp` in `mcp_servers` (loopback); plugin `mcp.json` is for other hosts / IDE parity.
+Hosted Anne: push `main` → **anne-app-deployer** → install + profile sync. Profile lists `plugins.enabled: [inbiot-anne, openair-client, inbiot-fiware]` and `inbiot-orion-bridge-mcp` under `mcp_servers` (loopback wins over plugin `mcp.json`). See [inbiot-anne-hermes/RUNTIME.md](../inbiot-anne-hermes/RUNTIME.md).
 
 Remote MCP: see `mcp.remote.example.json` (set `MCP_INBIOT_AUTH_TOKEN` in profile `.env`).
 
